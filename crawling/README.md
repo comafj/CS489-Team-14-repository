@@ -4,6 +4,7 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 (but, no contents of replies // need to modify)
 
 Need to download appropriate version of chromedriver.exe
+
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ### requirements
