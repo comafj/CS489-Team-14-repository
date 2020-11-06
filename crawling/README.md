@@ -9,7 +9,7 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 - BeautifulSoup
 - selenium
 
-- Need to download appropriate version of chromedriver.exe
--- https://sites.google.com/a/chromium.org/chromedriver/downloads
+#### Need to download appropriate version of chromedriver.exe
+- https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ## Sangwoo Jung also contributed offline.
