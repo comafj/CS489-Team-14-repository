@@ -12,6 +12,7 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 #### Need to download appropriate version of chromedriver.exe
 - https://sites.google.com/a/chromium.org/chromedriver/downloads
 
+##
 ### Sangwoo Jung also contributed offline.
 ###### pine-s | dream4future@kaist.ac.kr | 20160688 | Sol Han
 ###### SangwooJung98 | dan0130@kaist.ac.kr | 20160579 | Sangwoo Jung
