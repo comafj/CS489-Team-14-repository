@@ -1,4 +1,4 @@
-Crawling News Data
+# Crawling News Data
 
 Crawling data include news headline, news creation time, summary by AI bot, comments, creation time of comments, like & dislike of comments, and replies of comments.
 (but, no contents of replies // need to modify)
@@ -12,4 +12,4 @@ requirements
 - BeautifulSoup
 - selenium
 
-Sangwoo Jung also contributed offline.
+## Sangwoo Jung also contributed offline.
