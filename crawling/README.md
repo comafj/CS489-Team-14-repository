@@ -10,7 +10,7 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 - selenium
 
 ##### Need to download appropriate version of chromedriver.exe
-- https://sites.google.com/a/chromium.org/chromedriver/downloads
+https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ##
 ###### pine-s | dream4future@kaist.ac.kr | 20160688 | Sol Han
