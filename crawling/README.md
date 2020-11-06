@@ -6,7 +6,7 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 Need to download appropriate version of chromedriver.exe
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
-requirements
+### requirements
 - python=3.7.3
 - requests
 - BeautifulSoup
