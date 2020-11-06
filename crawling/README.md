@@ -14,3 +14,4 @@ Crawling data include news headline, news creation time, summary by AI bot, comm
 
 ### Sangwoo Jung also contributed offline.
 ###### pine-s | dream4future@kaist.ac.kr | 20160688 | Sol Han
+###### SangwooJung98 | dan0130@kaist.ac.kr | 20160579 | Sangwoo Jung
