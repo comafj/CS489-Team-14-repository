@@ -19,9 +19,15 @@ import time
 url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
 
 #웹 드라이버
-driver = webdriver.Chrome('./chromedriver.exe')
+driver = webdriver.Chrome('./crawling/chromedriver.exe')
 driver.implicitly_wait(30)
 driver.get(url)
+
+contents = driver.find_elements_by_css_selector('div._article_body_contents')
+text = []
+for content in contents:
+    # print(content.text)
+    text.append(content.text)
 
 btn_more = driver.find_element_by_css_selector('div.media_end_head_autosummary._auto_summary_wrapper')
 btn_more.click()
@@ -54,13 +60,22 @@ while True:
         break
 
 # re-reply
-# while True:
-#     try:
-#         btn_more = driver.find_element_by_css_selector('strong.u_cbox_reply_txt')
-#         btn_more.click()
-#         # time.sleep(1)
-#     except:
-#         break
+btn_more = driver.find_elements_by_css_selector('a.u_cbox_btn_reply')
+for elem in btn_more:
+    try:
+        elem.click()
+        # time.sleep(1)
+    except:
+        break
+
+#더보기 계속 클릭하기
+while True:
+    try:
+        btn_more = driver.find_element_by_css_selector('a.u_cbox_btn_more')
+        btn_more.click()
+        # time.sleep(1)
+    except:
+        break
 
 #기사제목 추출
 article_head = driver.find_elements_by_css_selector('div.article_info > h3 > a')
