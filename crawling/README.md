@@ -1,7 +1,7 @@
 # Crawling News Data
 
- Crawling data include news headline, news creation time, summary by AI bot, comments, creation time of comments, like & dislike of comments, and replies of comments.
-(But, no contents of replies // need to modify)
+##### Crawling data include news headline, news creation time, summary by AI bot, comments, creation time of comments, like & dislike of comments, and replies of comments.
+##### (But, no contents of replies // need to modify)
 
 ### Requirements
 - python=3.7.3
@@ -9,7 +9,7 @@
 - BeautifulSoup
 - selenium
 
-#### Need to download appropriate version of chromedriver.exe
+##### Need to download appropriate version of chromedriver.exe
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ### crawling_output.tsv format
