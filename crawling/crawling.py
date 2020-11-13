@@ -6,6 +6,7 @@ from selenium import webdriver
 import time
 
 ### variable ###
+# text
 # sum_text
 # head
 # time
@@ -18,16 +19,18 @@ import time
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=055&aid=0000852893'
 url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
 
-#웹 드라이버
+print("###################################################")
+print("### DO not touch chrome webpage during crawling ###")
+print("###################################################")
+
+# 웹 드라이버
 driver = webdriver.Chrome('./crawling/chromedriver.exe')
 driver.implicitly_wait(30)
 driver.get(url)
 
 contents = driver.find_elements_by_css_selector('div._article_body_contents')
-text = []
-for content in contents:
-    # print(content.text)
-    text.append(content.text)
+text = contents[0].text
+text.replace('\n',' ')
 
 btn_more = driver.find_element_by_css_selector('div.media_end_head_autosummary._auto_summary_wrapper')
 btn_more.click()
@@ -36,6 +39,7 @@ summaries = driver.find_elements_by_css_selector('div._contents_body')
 for summary in summaries:
     # print(summary.text)
     sum_text = summary.text
+    sum_text.replace('\n', ' ')
 
 btn_more = driver.find_element_by_css_selector('span.u_cbox_in_view_comment')
 btn_more.click()
@@ -50,7 +54,7 @@ cleanbot_confirm = driver.find_element_by_css_selector('button.u_cbox_layer_clea
 cleanbot_confirm.click()
 time.sleep(1)
 
-#더보기 계속 클릭하기
+# 더보기 계속 클릭하기
 while True:
     try:
         btn_more = driver.find_element_by_css_selector('a.u_cbox_btn_more')
@@ -58,6 +62,9 @@ while True:
         # time.sleep(1)
     except:
         break
+
+btn_more = driver.find_element_by_css_selector('a.floating_btn_top')
+btn_more.click()
 
 # re-reply
 btn_more = driver.find_elements_by_css_selector('a.u_cbox_btn_reply')
@@ -68,7 +75,7 @@ for elem in btn_more:
     except:
         break
 
-#더보기 계속 클릭하기
+# 더보기 계속 클릭하기
 while True:
     try:
         btn_more = driver.find_element_by_css_selector('a.u_cbox_btn_more')
@@ -77,12 +84,12 @@ while True:
     except:
         break
 
-#기사제목 추출
+# 기사제목 추출
 article_head = driver.find_elements_by_css_selector('div.article_info > h3 > a')
 head = article_head[0].text
 # print("기사 제목 : " + article_head[0].text)
 
-#기사시간 추출
+# 기사시간 추출
 article_time = driver.find_elements_by_css_selector('div.sponsor > span.t11')
 time = article_time[0].text
 # print("기사 등록 시간 : " + article_time[0].text)
@@ -120,3 +127,14 @@ for content in contents:
 for i in range(len(comment)):
     print(comment[i] + ' ' + cmt_time[i] + ' ' + like[i] + ' ' + dislike[i] + ' ' + reply[i])
 
+# save result in .csv file
+f = open('crawling_output.tsv', 'w', -1, "utf-8")
+# save sentence, cite, and triples
+f.write(head + '\t' + time + '\t\"' + text + '\"\t\"' + sum_text + '\"\n')
+# for i in range(len(sentence)):
+#     f.write("\"" + sentence[i] + "\"" + ',') # sentences
+#     f.write("\"" + [', '.join(cite[i])][0] + "\"" +  ',') # cite
+#     f.write("\"" + ['/'.join([', '.join(t) for t in triples[i]])][0] + "\"" + ',') # true triples
+#     f.write("\"" + ['/'.join([', '.join(t) for t in output[i]])][0] + "\"" + ',') # found triples
+#     f.write(evaluation[i] + '\n')
+f.close()
