@@ -30,7 +30,10 @@ driver.get(url)
 
 contents = driver.find_elements_by_css_selector('div._article_body_contents')
 text = contents[0].text
-text.replace('\n',' ')
+text = text.replace('\n',' ')
+
+btn_more = driver.find_element_by_css_selector('a.floating_btn_top')
+btn_more.click()
 
 btn_more = driver.find_element_by_css_selector('div.media_end_head_autosummary._auto_summary_wrapper')
 btn_more.click()
@@ -39,7 +42,7 @@ summaries = driver.find_elements_by_css_selector('div._contents_body')
 for summary in summaries:
     # print(summary.text)
     sum_text = summary.text
-    sum_text.replace('\n', ' ')
+    sum_text = sum_text.replace('\n', ' ')
 
 btn_more = driver.find_element_by_css_selector('span.u_cbox_in_view_comment')
 btn_more.click()
@@ -124,17 +127,11 @@ for content in contents:
     # print(content.text)
     reply.append(content.text)
 
-for i in range(len(comment)):
-    print(comment[i] + ' ' + cmt_time[i] + ' ' + like[i] + ' ' + dislike[i] + ' ' + reply[i])
-
-# save result in .csv file
+# save result in .tsv file
 f = open('crawling_output.tsv', 'w', -1, "utf-8")
-# save sentence, cite, and triples
-f.write(head + '\t' + time + '\t\"' + text + '\"\t\"' + sum_text + '\"\n')
-# for i in range(len(sentence)):
-#     f.write("\"" + sentence[i] + "\"" + ',') # sentences
-#     f.write("\"" + [', '.join(cite[i])][0] + "\"" +  ',') # cite
-#     f.write("\"" + ['/'.join([', '.join(t) for t in triples[i]])][0] + "\"" + ',') # true triples
-#     f.write("\"" + ['/'.join([', '.join(t) for t in output[i]])][0] + "\"" + ',') # found triples
-#     f.write(evaluation[i] + '\n')
+f.write(head + '\t' + time + '\t' + text + '\t' + sum_text + '\n')
+for i in range(len(reply)):
+    f.write(str(i) + '\t' + comment[i] + '\t' + cmt_time[i] + '\t' + like[i] + '\t' + dislike[i] + '\t' + reply[i] + '\n')
+    for j in range(int(reply[i])):
+        f.write(str(i) + '\t' + comment[j] + '\t' + cmt_time[j] + '\t' + like[j] + '\t' + dislike[j] + '\n')
 f.close()
