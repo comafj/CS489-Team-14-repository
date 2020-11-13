@@ -1,6 +1,6 @@
 # Crawling News Data
 
-##### Crawling data include news headline, news creation time, summary by AI bot, comments, creation time of comments, like & dislike of comments, and replies of comments.
+#####  Crawling data include news headline, news creation time, summary by AI bot, comments, creation time of comments, like & dislike of comments, and replies of comments.
 
 ### Requirements
 - python=3.7.3
@@ -17,7 +17,7 @@ https://sites.google.com/a/chromium.org/chromedriver/downloads
 ##### re-reply: ith_of_owner_cmt comment cmt_creation_time like dislike
 
 ### Execution (in CS489-Team-14-repository dir)
-python .\crawling\crawling.py
+##### python .\crawling\crawling.py
 
 ##
 ###### pine-s | dream4future@kaist.ac.kr | 20160688 | Sol Han
