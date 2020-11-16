@@ -20,7 +20,7 @@ import time
 url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
 
 print("###################################################")
-print("### DO not touch chrome webpage during crawling ###")
+print("### Do not touch chrome webpage during crawling ###")
 print("###################################################")
 
 # 웹 드라이버
@@ -40,7 +40,6 @@ btn_more.click()
 
 summaries = driver.find_elements_by_css_selector('div._contents_body')
 for summary in summaries:
-    # print(summary.text)
     sum_text = summary.text
     sum_text = sum_text.replace('\n', ' ')
 
@@ -62,7 +61,6 @@ while True:
     try:
         btn_more = driver.find_element_by_css_selector('a.u_cbox_btn_more')
         btn_more.click()
-        # time.sleep(1)
     except:
         break
 
@@ -74,64 +72,64 @@ btn_more = driver.find_elements_by_css_selector('a.u_cbox_btn_reply')
 for elem in btn_more:
     try:
         elem.click()
-        # time.sleep(1)
     except:
         break
+
+btn_more = driver.find_element_by_css_selector('a.floating_btn_top')
+btn_more.click()
+
+driver.execute_script("window.scrollTo(0, window.scrollY + 3000);")
 
 # 더보기 계속 클릭하기
-while True:
+btn_more = driver.find_elements_by_css_selector('a.u_cbox_btn_more')
+for elem in btn_more:
     try:
-        btn_more = driver.find_element_by_css_selector('a.u_cbox_btn_more')
-        btn_more.click()
-        # time.sleep(1)
+        driver.execute_script("arguments[0].scrollIntoView(true);", elem)
+        driver.execute_script("arguments[0].click();", elem)
+        driver.execute_script("window.scrollTo(0, window.scrollY + 1000);")
+        time.sleep(1)
     except:
         break
 
+html = driver.page_source
+soup = BeautifulSoup(html, 'lxml')
+
 # 기사제목 추출
-article_head = driver.find_elements_by_css_selector('div.article_info > h3 > a')
+article_head = soup.select('div.article_info > h3 > a')
 head = article_head[0].text
 # print("기사 제목 : " + article_head[0].text)
 
 # 기사시간 추출
-article_time = driver.find_elements_by_css_selector('div.sponsor > span.t11')
+article_time = soup.select('div.sponsor > span.t11')
 time = article_time[0].text
-# print("기사 등록 시간 : " + article_time[0].text)
 
-contents = driver.find_elements_by_css_selector('span.u_cbox_contents')
-comment = []
-for content in contents:
-    # print(content.text)
-    comment.append(content.text)
+contents = soup.select('span.u_cbox_contents')
+comment = [content.text for content in contents]
 
-contents = driver.find_elements_by_css_selector('span.u_cbox_date')
-cmt_time = []
-for content in contents:
-    # print(content.text)
-    cmt_time.append(content.text)
+contents = soup.select('span.u_cbox_date')
+cmt_time = [content.text for content in contents]
 
-contents = driver.find_elements_by_css_selector('em.u_cbox_cnt_recomm')
-like = []
-for content in contents:
-    # print(content.text)
-    like.append(content.text)
+contents = soup.select('em.u_cbox_cnt_recomm')
+like = [content.text for content in contents]
 
-contents = driver.find_elements_by_css_selector('em.u_cbox_cnt_unrecomm')
-dislike = []
-for content in contents:
-    # print(content.text)
-    dislike.append(content.text)
+contents = soup.select('em.u_cbox_cnt_unrecomm')
+dislike = [content.text for content in contents]
 
-contents = driver.find_elements_by_css_selector('span.u_cbox_reply_cnt')
-reply = []
-for content in contents:
-    # print(content.text)
-    reply.append(content.text)
+contents = soup.select('span.u_cbox_reply_cnt')
+reply = [content.text for content in contents]
 
 # save result in .tsv file
 f = open('crawling_output.tsv', 'w', -1, "utf-8")
 f.write(head + '\t' + time + '\t' + text + '\t' + sum_text + '\n')
+cnt = 0
 for i in range(len(reply)):
-    f.write(str(i) + '\t' + comment[i] + '\t' + cmt_time[i] + '\t' + like[i] + '\t' + dislike[i] + '\t' + reply[i] + '\n')
-    for j in range(int(reply[i])):
-        f.write(str(i) + '\t' + comment[j] + '\t' + cmt_time[j] + '\t' + like[j] + '\t' + dislike[j] + '\n')
+    for j in range(int(reply[i])+1):
+        k = cnt + j
+        if j == 0:
+            f.write(str(i) + '\t' + comment[k] + '\t' + cmt_time[k] + '\t' + like[k] + '\t' + dislike[k] + '\t' + reply[i] + '\n')
+        else:
+            f.write(str(i) + '\t' + comment[k] + '\t' + cmt_time[k] + '\t' + like[k] + '\t' + dislike[k] + '\n')
+    cnt += int(reply[i]) + 1
 f.close()
+
+driver.quit()

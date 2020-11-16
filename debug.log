@@ -32,3 +32,40 @@
 [1113/162716.028:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
 [1113/162716.028:ERROR:exception_snapshot_win.cc(99)] thread ID 17896 not found in process
 [1113/164821.319:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1113/170121.011:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/170121.012:ERROR:exception_snapshot_win.cc(99)] thread ID 2496 not found in process
+[1113/170121.063:ERROR:process_info.cc(329)] VirtualQueryEx: 액세스가 거부되었습니다. (0x5)
+[1113/170121.063:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1113/170121.063:ERROR:process_memory_win.cc(39)] Failed to initialize ProcessInfo.
+[1113/170121.064:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: 기존 프로세스에 액세스하려고 했습니다. (0xc000010a)
+[1113/192539.580:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/192539.582:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/192539.589:ERROR:exception_snapshot_win.cc(99)] thread ID 17724 not found in process
+[1113/192539.589:ERROR:exception_snapshot_win.cc(99)] thread ID 4248 not found in process
+[1113/192539.597:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/192539.597:ERROR:exception_snapshot_win.cc(99)] thread ID 18344 not found in process
+[1113/192608.601:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/192608.613:ERROR:exception_snapshot_win.cc(99)] thread ID 17872 not found in process
+[1113/192608.630:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/192608.630:ERROR:exception_snapshot_win.cc(99)] thread ID 3824 not found in process
+[1113/193745.526:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1113/195448.974:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1113/195757.042:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1113/200927.485:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/200927.500:ERROR:exception_snapshot_win.cc(99)] thread ID 18804 not found in process
+[1113/200927.506:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1113/200927.506:ERROR:exception_snapshot_win.cc(99)] thread ID 14364 not found in process
+[1116/163634.946:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/163634.957:ERROR:exception_snapshot_win.cc(99)] thread ID 1732 not found in process
+[1116/163634.958:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/163634.958:ERROR:exception_snapshot_win.cc(99)] thread ID 11656 not found in process
+[1116/164633.682:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/164633.692:ERROR:exception_snapshot_win.cc(99)] thread ID 5852 not found in process
+[1116/164633.698:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/164633.699:ERROR:exception_snapshot_win.cc(99)] thread ID 12692 not found in process
+[1116/165649.900:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1116/170157.794:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/170157.795:ERROR:exception_snapshot_win.cc(99)] thread ID 768 not found in process
+[1116/170157.849:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[1116/170157.849:ERROR:exception_snapshot_win.cc(99)] thread ID 6816 not found in process
+[1116/171426.511:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
