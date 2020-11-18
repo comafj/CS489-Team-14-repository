@@ -5,8 +5,8 @@
 ### Requirements
 - python=3.7.3
 - requests
-- BeautifulSoup
-- selenium
+- BeautifulSoup (for accelerating to crawl data)
+- selenium (for dynamic crawling)
 
 ##### Need to download appropriate version of chromedriver.exe
 https://sites.google.com/a/chromium.org/chromedriver/downloads
