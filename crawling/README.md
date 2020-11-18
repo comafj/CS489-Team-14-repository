@@ -11,11 +11,13 @@
 ##### Need to download appropriate version of chromedriver.exe
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
+##
 ### crawling_output.tsv format
 ##### 1st row: news_head news_creation_time news_contents news_summary
 ##### comment row: ith comment cmt_creation_time like dislike re-reply
 ##### re-reply: ith_of_owner_cmt comment cmt_creation_time like dislike
 
+##
 ### Execution (in CS489-Team-14-repository dir)
 ##### python .\crawling\crawling.py
 
