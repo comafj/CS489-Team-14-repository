@@ -130,7 +130,7 @@ reply = [content.text for content in contents]
 f = open('crawling_output.tsv', 'w', -1, "utf-8")
 f.write(head + '\t' + time + '\t' + text + '\t' + sum_text + '\n')
 cnt = 0
-for i in range(len(reply)):
+for i in range(len(comment_only)):
     for j in range(int(reply[i])+1):
         k = cnt + j
         if comment[k] == comment_only[i]:
