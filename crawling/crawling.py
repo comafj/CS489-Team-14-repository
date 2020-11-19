@@ -11,6 +11,7 @@ import time
 # head
 # time
 # comment
+# comment_only
 # cmt_time
 # like
 # dislike
@@ -64,6 +65,13 @@ while True:
     except:
         break
 
+# only-comment (for reply classification)
+html = driver.page_source
+soup = BeautifulSoup(html, 'lxml')
+
+contents = soup.select('span.u_cbox_contents')
+comment_only = [content.text for content in contents]
+
 btn_more = driver.find_element_by_css_selector('a.floating_btn_top')
 btn_more.click()
 
@@ -106,8 +114,8 @@ time = article_time[0].text
 contents = soup.select('span.u_cbox_contents')
 comment = [content.text for content in contents]
 
-contents = soup.select('span.u_cbox_date')
-cmt_time = [content.text for content in contents]
+# contents = soup.select('span.u_cbox_date')
+# cmt_time = [content.text for content in contents]
 
 contents = soup.select('em.u_cbox_cnt_recomm')
 like = [content.text for content in contents]
@@ -125,10 +133,12 @@ cnt = 0
 for i in range(len(reply)):
     for j in range(int(reply[i])+1):
         k = cnt + j
+        if comment[k] == comment_only[i]:
+            break
         if j == 0:
-            f.write(str(i) + '\t' + comment[k] + '\t' + cmt_time[k] + '\t' + like[k] + '\t' + dislike[k] + '\t' + reply[i] + '\n')
+            f.write(str(i) + '\t' + comment[k] + '\t' + like[k] + '\t' + dislike[k] + '\t' + reply[i] + '\n') #  + '\t' + cmt_time[k]
         else:
-            f.write(str(i) + '\t' + comment[k] + '\t' + cmt_time[k] + '\t' + like[k] + '\t' + dislike[k] + '\n')
+            f.write(str(i) + '\t' + comment[k] + '\t' + like[k] + '\t' + dislike[k] + '\n') #  + '\t' + cmt_time[k]
     cnt += int(reply[i]) + 1
 f.close()
 
