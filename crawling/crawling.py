@@ -131,15 +131,19 @@ f = open('crawling_output.tsv', 'w', -1, "utf-8")
 f.write(head + '\t' + time + '\t' + text + '\t' + sum_text + '\n')
 cnt = 0
 for i in range(len(comment_only)):
-    for j in range(int(reply[i])+1):
+    j = 0
+    while(true):
         k = cnt + j
-        if comment[k] == comment_only[i]:
+        if i < len(comment_only)-1 and comment[k] == comment_only[i+1]:
+            break
+        elif len(comment) == k + 1:
             break
         if j == 0:
             f.write(str(i) + '\t' + comment[k] + '\t' + like[k] + '\t' + dislike[k] + '\t' + reply[i] + '\n') #  + '\t' + cmt_time[k]
         else:
             f.write(str(i) + '\t' + comment[k] + '\t' + like[k] + '\t' + dislike[k] + '\n') #  + '\t' + cmt_time[k]
-    cnt += int(reply[i]) + 1
+        j++
+    cnt += j + 1
 f.close()
 
 driver.quit()
