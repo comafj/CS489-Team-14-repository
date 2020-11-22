@@ -18,7 +18,8 @@ import time
 # reply
 
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=055&aid=0000852893'
-url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
+url = 'https://news.naver.com/main/read.nhn?mode=LS2D&mid=sec&sid1=104&sid2=231&oid=003&aid=0010193524'
 
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
