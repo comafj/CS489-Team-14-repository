@@ -121,8 +121,22 @@ comment = [content.text for content in contents]
 contents = soup.select('em.u_cbox_cnt_recomm')
 like = [content.text for content in contents]
 
+loglike = []
+for i in range(len(like)):
+    if int(like[i]) == 0:
+        loglike.append(0)
+    else:
+        loglike.append(math.log(int(like[i]), 2))
+
 contents = soup.select('em.u_cbox_cnt_unrecomm')
 dislike = [content.text for content in contents]
+
+logdislike = []
+for i in range(len(dislike)):
+    if int(dislike[i]) == 0:
+        logdislike.append(0)
+    else:
+        logdislike.append(math.log(int(dislike[i]), 2))
 
 contents = soup.select('span.u_cbox_reply_cnt')
 reply = [content.text for content in contents]
@@ -143,9 +157,9 @@ j = 0
 for i in range(len(comment)):
     if i == cnt[j]:
         j += 1
-        f.write(str(j) + '\t' + comment[i] + '\t' + like[i] + '\t' + dislike[i] + '\t' + reply[j - 1] + '\n') #  + '\t' + cmt_time[k]
+        f.write(str(j) + '\t' + comment[i] + '\t' + str(loglike[i]) + '\t' + str(logdislike[i]) + '\t' + reply[j - 1] + '\n') #  + '\t' + cmt_time[k]
     else:
-        f.write(str(j) + '\t' + comment[i] + '\t' + like[i] + '\t' + dislike[i] + '\n') #  + '\t' + cmt_time[k]
+        f.write(str(j) + '\t' + comment[i] + '\t' + str(loglike[i]) + '\t' + str(logdislike[i]) + '\n') #  + '\t' + cmt_time[k]
 f.close()
 
 driver.quit()
