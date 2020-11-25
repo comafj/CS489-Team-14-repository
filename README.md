@@ -16,7 +16,7 @@ In this folder, we implemented news data crawling part. It can bring some inform
 ### extraction
 In this folder, we implemented extracting part of meaningful keyword. "CS489_Keyword_Extraction_ver_0_1" file is using Textrank based method to do it.
 ### crawling_output
-In this folder, we save tsv format files that save results of crawling.
+In this folder, we save tsv format files that include results of crawling.
 ### dict_check.py
 It includes function to check whether the word is korean word or not.
 A word like "펜실베이니아" is divided into "펜실" and "베이니아" which make the search result fail.
