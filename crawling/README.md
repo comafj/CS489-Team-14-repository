@@ -16,8 +16,8 @@ https://sites.google.com/a/chromium.org/chromedriver/downloads
 ##### 1st row: news_head news_creation_time news_contents news_summary
 ##### comment row: ith comment like dislike re-reply
 ##### re-reply: ith_of_owner_cmt comment like dislike
-### crawling output directory
-#### ../crawling_output/
+### Crawling output directory (Every execution makes different file dir)
+#### ../crawling_output/crawling_output_idx.tsv
 
 ##
 ### Execution (in CS489-Team-14-repository dir)
