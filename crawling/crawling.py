@@ -5,6 +5,7 @@ import random
 from selenium import webdriver
 import time
 import math
+import os
 
 ### variable ###
 # text
@@ -142,8 +143,15 @@ for i in range(len(dislike)):
 contents = soup.select('span.u_cbox_reply_cnt')
 reply = [content.text for content in contents]
 
+idx = 0
+filename = 'crawling_output'
+path = './crawling_output/%s_%d.tsv' % (filename, idx)
+while os.path.exists(path):
+    idx += 1
+    path = './crawling_output/%s_%d.tsv' % (filename, idx)
+
 # save result in .tsv file
-f = open('crawling_output.tsv', 'w', -1, "utf-8")
+f = open(path, 'w', -1, "utf-8")
 f.write(head + '\t' + time + '\t' + text + '\t' + sum_text + '\n')
 cnt = []
 j = 0
