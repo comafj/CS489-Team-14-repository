@@ -14,7 +14,7 @@ https://sites.google.com/a/chromium.org/chromedriver/downloads
 ##
 ### crawling_output_idx.tsv format
 ##### 1st row: news_head news_creation_time news_contents news_summary
-##### comment row: ith comment like dislike re-reply
+##### comment row: ith comment like dislike re-reply-num
 ##### re-reply: ith_of_owner_cmt comment like dislike
 ### Crawling output directory (Every execution makes different file dir)
 #### ../crawling_output/crawling_output_idx.tsv
