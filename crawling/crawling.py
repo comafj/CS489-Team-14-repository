@@ -38,10 +38,9 @@ import os
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=469&aid=0000557255'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003832096'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578934'
-url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=014&aid=0004535517' ## 여기서 부터 다시 해야 함
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=014&aid=0004535517'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578904'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=025&aid=0003055691'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=055&aid=0000857056'
 
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
