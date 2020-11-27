@@ -23,6 +23,12 @@ import os
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003822153'
 url = 'https://news.naver.com/main/read.nhn?mode=LS2D&mid=sec&sid1=104&sid2=231&oid=003&aid=0010193524'
 
+### 뉴스 기사 모음 ###
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=009&aid=0004704439'
+
+
+
+
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
 print("###################################################")
