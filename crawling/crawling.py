@@ -25,9 +25,26 @@ url = 'https://news.naver.com/main/read.nhn?mode=LS2D&mid=sec&sid1=104&sid2=231&
 
 ### 뉴스 기사 모음 ###
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=009&aid=0004704439'
-
-
-
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=024&aid=0000066888'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=023&aid=0003577680'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=001&aid=0012044246'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=015&aid=0004457212'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=022&aid=0003527435'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=448&aid=0000312295'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=105&oid=023&aid=0003577306'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012043285'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=022&aid=0003527241'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012043278'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=469&aid=0000557538'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012040861'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578950'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=469&aid=0000557255'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003832096'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578934'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=014&aid=0004535517'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578904'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=025&aid=0003055691'
+# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=055&aid=0000857056'
 
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
