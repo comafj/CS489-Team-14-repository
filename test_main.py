@@ -1,13 +1,20 @@
 from extraction import CS489_Keyword_Extraction_ver_0_2 as ke
 import news as ns
 import dict_check as dc
+import get_comment as gc
+import csv
+
+indexing = 17
+indexing = str(indexing)
 
 if __name__ == '__main__':
-    news_body = ke.newsfromtext("extraction/news_body.txt")
+    file_0 = "./crawling_output/crawling_output_" + indexing + ".tsv"
+    news_body = gc.tsv_body(file_0)
+    #news_body = ke.newsfromtext("extraction/news_body.txt")
     keywords = ke.keyfrombody(news_body)
     ids = keywords.keys()
     top_keys = []
-    num_k = 5
+    num_k = 3
     for k in list(ids):
         if dc.kor_dict_check(k):
             top_keys.append(k)
@@ -34,5 +41,12 @@ if __name__ == '__main__':
     print("[2 / 3] Update finished")
     
     print("[3 / 3] Ranking comments ...")
-    comment_scores = ke.keyword_analysis(keywords, "extraction/news_body.txt", "extraction/comment_test.txt")
+    comment_scores = ke.new_ka(keywords, gc.only_tsv_comments(file_0))
+    comment_scores = sorted(comment_scores, key=lambda x: x[0], reverse=True)    
+    #comment_scores = ke.keyword_analysis(keywords, "extraction/comment_test.txt")
+    with open('Rank_keywords/keyword_rank_'+indexing+'.tsv', 'wt', -1, 'utf-8') as out_file:
+        tsv_writer = csv.writer(out_file, delimiter='\t')
+        for cs in comment_scores:
+            tsv_writer.writerow([cs[0], cs[1]])
+        
     print("[3 / 3] Ended")    

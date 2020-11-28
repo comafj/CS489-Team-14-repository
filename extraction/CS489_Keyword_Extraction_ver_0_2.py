@@ -1,10 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-#get_ipython().system('pip install konlpy')
-#get_ipython().system('pip install newspaper3k')
 from konlpy.tag import Kkma
 from konlpy.tag import Okt
+from konlpy.tag import Mecab
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import normalize
@@ -27,6 +23,7 @@ def sent_tokenize(text):
 # Okt를 이용해 각 문장들을 명사만 추출한 리스트로 바꾸어 반환
 def noun_extract(sentences):
     okt = Okt()
+    #mecab = Mecab()
     result = []
     for s in sentences:
         result.append(' '.join([w for w in okt.nouns(str(s))]))
@@ -110,8 +107,9 @@ def getcomments(filename):
     f.close()
     return result
 
-def keyword_analysis(keydict, body_file, comment_file):
+def keyword_analysis(keydict, comment_file):
     okt = Okt()
+    #mecab = Mecab()
     sentence_score = []
     comments = getcomments(comment_file)
     for com in comments:
@@ -122,7 +120,20 @@ def keyword_analysis(keydict, body_file, comment_file):
                 score += keydict[sn] # Accumulate its score
         sentence_score.append((com, score))
     return sentence_score
-    
+
+def new_ka(keydict, comments_str):
+    okt = Okt()
+    #mecab = Mecab()
+    sentence_score = []
+    for com in comments_str:
+        score = 0
+        com_noun = okt.nouns(com)
+        for sn in com_noun:
+            if sn in keydict:
+                score += keydict[sn]
+        sentence_score.append((score, com))
+    return sentence_score
+
 #score_test = keyword_analysis("news_body.txt", "comment_test.txt")
 #c = getcomments("comment_test.txt")
 #for i in range(len(c)):
