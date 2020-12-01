@@ -28,19 +28,15 @@ import os
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=023&aid=0003577680'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=001&aid=0012044246'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=015&aid=0004457212'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=022&aid=0003527435'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=100&oid=448&aid=0000312295'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012043285'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012043278'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=469&aid=0000557538'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=001&aid=0012040861'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578950'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=469&aid=0000557255'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=011&aid=0003832096'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578934'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=014&aid=0004535517'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=023&aid=0003578904'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=025&aid=0003055691'
 
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
@@ -144,23 +140,21 @@ like = [content.text for content in contents]
 
 loglike = []
 for i in range(len(like)):
-    if int(like[i]) == 0:
-        loglike.append(0)
-    else:
-        loglike.append(math.log(int(like[i]), 2))
+    loglike.append(math.log(int(like[i]) + 1, 2))
 
 contents = soup.select('em.u_cbox_cnt_unrecomm')
 dislike = [content.text for content in contents]
 
 logdislike = []
 for i in range(len(dislike)):
-    if int(dislike[i]) == 0:
-        logdislike.append(0)
-    else:
-        logdislike.append(math.log(int(dislike[i]), 2))
+    logdislike.append(math.log(int(dislike[i]) + 1, 2))
 
 contents = soup.select('span.u_cbox_reply_cnt')
 reply = [content.text for content in contents]
+
+logreply = []
+for i in range(len(reply)):
+    logreply.append(math.log(int(reply[i]) + 1, 2))
 
 idx = 0
 filename = 'crawling_output'
@@ -185,7 +179,7 @@ j = 0
 for i in range(len(comment)):
     if i == cnt[j]:
         j += 1
-        f.write(str(j) + '\t' + comment[i] + '\t' + str(loglike[i]) + '\t' + str(logdislike[i]) + '\t' + reply[j - 1] + '\n') #  + '\t' + cmt_time[k]
+        f.write(str(j) + '\t' + comment[i] + '\t' + str(loglike[i]) + '\t' + str(logdislike[i]) + '\t' + str(logreply[j - 1]) + '\n') #  + '\t' + cmt_time[k]
     else:
         f.write(str(j) + '\t' + comment[i] + '\t' + str(loglike[i]) + '\t' + str(logdislike[i]) + '\n') #  + '\t' + cmt_time[k]
 f.close()
