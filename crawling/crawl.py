@@ -67,7 +67,7 @@ def crawling(url):
 
     driver.quit()
     boo = len(comment) == len(like) == len(dislike) == len(reply)
-    return boo, head, content, comment, like, dislike, reply
+    return boo, head, content, comment, like, dislike, reply # if !boo, some of news comments have been removed
 
 def log_scale(input, n): # logn(x+1): 0(if x == 0)
     return [str(math.log(int(elem) + 1, n)) for elem in input]
