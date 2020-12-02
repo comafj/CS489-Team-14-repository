@@ -69,8 +69,8 @@ def crawling(url):
     boo = len(comment) == len(like) == len(dislike) == len(reply)
     return boo, head, content, comment, like, dislike, reply
 
-def log_scale(input): # log2(x+1): 0(if x == 0)
-    return [str(math.log(int(elem) + 1, 2)) for elem in input]
+def log_scale(input, n): # logn(x+1): 0(if x == 0)
+    return [str(math.log(int(elem) + 1, n)) for elem in input]
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
     temp = [int(elem) for elem in input]
