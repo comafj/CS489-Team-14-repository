@@ -35,7 +35,7 @@ class GraphMatrix(object):
         self.tfidf = TfidfVectorizer()
         self.cnt_vec = CountVectorizer()
         self.graph_sentence = []
-        
+
     def build_words_graph(self, sentence):
         cnt_vec_mat = normalize(self.cnt_vec.fit_transform(sentence).toarray().astype(float), axis=0)
         vocab = self.cnt_vec.vocabulary_
@@ -53,7 +53,7 @@ class Rank(object):
                 A[:, id] /= link_sum
             A[:, id] *= -d
             A[id, id] = 1
-        
+
         B = (1-d) * np.ones((matrix_size, 1))
         ranks = np.linalg.solve(A, B) # 연립방정식 Ax = b
         return {idx: r[0] for idx, r in enumerate(ranks)}
@@ -63,11 +63,11 @@ class TextRank(object):
     def __init__(self, text):
         self.sentences = sent_tokenize(text)
         self.nouns = noun_extract(self.sentences)
-        
+
         self.graph_matrix = GraphMatrix()
         self.words_graph, self.idx2word = self.graph_matrix.build_words_graph(self.nouns)
         self.rank = Rank()
-        
+
         self.word_rank_idx = self.rank.get_ranks(self.words_graph)
         self.sorted_word_rank_idx = sorted(self.word_rank_idx, key=lambda k: self.word_rank_idx[k], reverse=True)
 
@@ -75,7 +75,7 @@ class TextRank(object):
         rank = Rank()
         rank_idx = rank.get_ranks(self.words_graph)
         sorted_rank_idx = sorted(rank_idx, key=lambda k: rank_idx[k], reverse=True)
-        
+
         max_rank = rank_idx[sorted_rank_idx[0]]
         keywords = {}
         index=[]
@@ -125,13 +125,15 @@ def new_ka(keydict, comments_str):
     okt = Okt()
     #mecab = Mecab()
     sentence_score = []
+    index = 1
     for com in comments_str:
         score = 0
         com_noun = okt.nouns(com)
         for sn in com_noun:
             if sn in keydict:
                 score += keydict[sn]
-        sentence_score.append((score, com))
+        sentence_score.append((index, score, com))
+        index+=1
     return sentence_score
 
 #score_test = keyword_analysis("news_body.txt", "comment_test.txt")
