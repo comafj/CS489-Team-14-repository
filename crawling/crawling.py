@@ -46,7 +46,7 @@ import os
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=104&oid=015&aid=0004460126'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=047&aid=0002293990'
 # url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=018&aid=0004798939'
-# url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=018&aid=0004798885'
+url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=101&oid=018&aid=0004798885'
 
 print("###################################################")
 print("### Do not touch chrome webpage during crawling ###")
