@@ -8,7 +8,7 @@ indexing = 17
 indexing = str(indexing)
 
 if __name__ == '__main__':
-    file_0 = "./crawling_output/crawling_output_" + indexing + ".tsv"
+    file_0 = "./crawling_output/old_data/crawling_output_" + indexing + ".tsv"
     news_body = gc.tsv_body(file_0)
     #news_body = ke.newsfromtext("extraction/news_body.txt")
     keywords = ke.keyfrombody(news_body)
