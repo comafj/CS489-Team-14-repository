@@ -11,7 +11,6 @@
 ##### Need to download appropriate version of chromedriver.exe
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
-##
 ### crawl.py
 ##### crawling(url): crawling url and return true if there is no removed-reply, and also return the contents of the news and about comments
 ##### log_scale(list, n): get list contains n-log of each elem in the list
