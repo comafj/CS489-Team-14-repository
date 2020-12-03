@@ -136,24 +136,15 @@ def new_ka(keydict, comments_str):
         index+=1
     return sentence_score
 
-#score_test = keyword_analysis("news_body.txt", "comment_test.txt")
-#c = getcomments("comment_test.txt")
-#for i in range(len(c)):
-#    print((c[i], score_test[i]))
-
-#news_body = newsfromtext('news_2.txt')
-#key_from_body = keyfrombody(news_body)
-#print(key_from_body)
-#comments = getcomments("comment_test.txt")
-#print(comments[0])
-
-
-
-## TEST TEST TEST TEST TEST
-#okt = Okt()
-#print(okt.nouns(test))
-#print(okt.nouns(news_body))
-#sents = sent_tokenize(news_body)
-#print(sents)
-#nss = noun_extract(sents)
-#print(nss)
+def bnew_ka(keydict, comments):
+    okt = Okt()
+    #mecab = Mecab()
+    score_list = []
+    for com in comments:
+        score = 0
+        com_noun = okt.nouns(com)
+        for sn in com_noun:
+            if sn in keydict:
+                score += keydict[sn]
+        score_list.append(score)
+    return score_list
