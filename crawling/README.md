@@ -12,6 +12,13 @@
 https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ##
+### crawl.py
+##### crawling(url): crawling url and return true if there is no removed-reply, and also return the contents of the news and about comments
+##### log_scale(list, n): get list contains n-log of each elem in the list
+##### norm_data(list): normalization of each elem in the list(largest one be 1, smallest one be 0)
+##### norm_rank(list, rev): if rev is true, smallest one be 1, else largest one be 1
+
+##
 ### crawling_output_idx.tsv format
 ##### 1st row: news_head news_creation_time news_contents
 ##### comment row: ith comment like dislike re-reply-num
