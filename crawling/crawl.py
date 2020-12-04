@@ -7,6 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 import selenium
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 default_url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=009&aid=0004704439'
 
@@ -16,7 +17,7 @@ def crawling(url):
     print("###################################################")
 
     # 웹 드라이버
-    driver = webdriver.Chrome('./crawling/chromedriver.exe')
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.implicitly_wait(30)
     driver.get(url)
 
