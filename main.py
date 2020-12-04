@@ -264,17 +264,17 @@ cosine_only = df3['코사인유사도'].tolist()
 euclidean_only = df3['norm유클'].tolist()
 
 testList = df1['pos길이'].tolist()
-testLog = cr.log_scale(testList, 10)
+testLog = cr.log_scale(testList, 2)
 testNorm = cr.norm_data(testList)
 testRank = cr.norm_rank(testList, True)
 
 textRankN_only = ut.com_to_trscore(article, comment_only)
 
-n1_list = cr.norm_data(cr.log_scale(replyN_only, 10))
+n1_list = cr.norm_data(cr.log_scale(replyN_only, 2))
 
  #like dislike 리스트 인덱스끼리 더해야함
 mark = ["+","-","+0*"]
-n2_list = cr.norm_data(cr.log_scale(eval(like+mark[0]+dislike), 10))
+n2_list = cr.norm_data(cr.log_scale(eval(like+mark[0]+dislike), 2))
 
 #sqrt 연산때, 각각 인덱스 값들을 가져와 먼저 계산하고 새로운 리스트에 추가해줘야할듯
 n3_list = cr.norm_data(math.sqrt(textRankN_only/jaccard_only)) 
