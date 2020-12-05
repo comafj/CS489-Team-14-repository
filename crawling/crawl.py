@@ -58,24 +58,23 @@ def crawling(url):
     comment = [content.text for content in contents]
     # likes
     contents = soup.select('em.u_cbox_cnt_recomm')
-    like = [content.text for content in contents]
+    like = [int(content.text) for content in contents]
     # dislike
     contents = soup.select('em.u_cbox_cnt_unrecomm')
-    dislike = [content.text for content in contents]
+    dislike = [int(content.text) for content in contents]
     # reply cnt
     contents = soup.select('span.u_cbox_reply_cnt')
-    reply = [content.text for content in contents]
+    reply = [int(content.text) for content in contents]
 
     driver.quit()
     boo = len(comment) == len(like) == len(dislike) == len(reply)
     return boo, head, content, comment, like, dislike, reply # if !boo, some of news comments have been removed
 
 def log_scale(input, n): # logn(x+1): 0(if x == 0)
-    return [str(math.log(int(elem) + 1, n)) for elem in input]
+    return [math.log(elem + 1, n)) for elem in input]
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
-    temp = [int(elem) for elem in input]
-    return [str((elem-min(temp))/(max(temp)-min(temp))) for elem in temp]
+    return [(elem-min(input))/(max(input)-min(input)) for elem in input]
 
 def norm_rank(input, rev): # If rev, smallest = 1. Else, largest = 1.
     temp = sorted([(elem, i) for i, elem in enumerate(input)], reverse = rev)
