@@ -74,9 +74,9 @@ def log_scale(input, n): # logn(x+1): 0(if x == 0)
     l = []
     for elem in input:
         if elem >= 0:
-            l.append(math.log(elem + n - 1, n))
+            l.append(math.log(elem + 1, n))
         else:
-            l.append(-math.log(-elem + n - 1, n))
+            l.append(-math.log(-elem + 1, n))
     return l
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
