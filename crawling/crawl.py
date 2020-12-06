@@ -12,9 +12,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 default_url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=009&aid=0004704439'
 
 def crawling(url):
-    print("###################################################")
-    print("### Do not touch chrome webpage during crawling ###")
-    print("###################################################")
+    # print("###################################################")
+    # print("### Do not touch chrome webpage during crawling ###")
+    # print("###################################################")
 
     # 웹 드라이버
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -81,4 +81,4 @@ def norm_rank(input, rev): # If rev, smallest = 1. Else, largest = 1.
     temp = sorted([(idx, i) for i, (elem, idx) in enumerate(temp)])
     return norm_data([i for (idx, i) in temp])
 
-crawling(default_url)
+#crawling(default_url)
