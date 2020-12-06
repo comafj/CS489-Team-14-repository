@@ -71,7 +71,7 @@ def crawling(url):
     return boo, head, content, comment, like, dislike, reply # if !boo, some of news comments have been removed
 
 def log_scale(input, n): # logn(x+1): 0(if x == 0)
-    return [math.log(elem + 1, n)) for elem in input]
+    return [math.log(elem + n - 1, n)) for elem in input]
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
     return [(elem-min(input))/(max(input)-min(input)) for elem in input]
