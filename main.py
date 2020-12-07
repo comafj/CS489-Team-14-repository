@@ -18,11 +18,15 @@ def main(URL, ST1, ST2, ST3, ST4, k):
     if boo:
         dfIn = sub(title, article, comments, likes, dislikes, replys, k)
         dfIn[6] = ST1*dfIn[2] + ST2*dfIn[3] + ST3*dfIn[4] + ST4*dfIn[5]
-        result = dfIn[[0,1,6]]
-        result.columns = ['initial_num', 'comment', 'score']
-        # result.sort_values(by='score', ascending=False)
-        result = result.values.tolist()
-        return result
+        result_list = [comments, dfIn[6].tolist(), likes, dislikes, replys]
+        result = pd.DataFrame(result_list)
+        result = result.T
+        result.columns = ['comment', 'score', 'like', 'dislike', 'reply']
+        result.sort_values('score', ascending=False)
+        final = result[['comment', 'like', 'dislike', 'reply']] #for webpage UI
+        # final = result #for project report
+        final = final.values.tolist()
+        return title, article, final
     else:
         print("Oh this article cannot be processed")
         return
@@ -48,7 +52,7 @@ def sub(title, article, comments, likes, dislikes, replys, k):
     val_list4 = pr.list_calculate(cr.norm_rank(cosine, True), cr.norm_rank(euclidean, False), 2)
 
     # SHOULD we set this numbers
-    a, b, c, d = 1, 1, 1, 1
+    a, b, c, d = 2.23, 3.35, 2.92, 4 # default : based on the pre-survey (+ d, max) 
     default = [num, comments, val_list1, val_list2, val_list3, val_list4]
     df = pd.DataFrame(default)
     df = df.T
@@ -60,5 +64,5 @@ def sub(title, article, comments, likes, dislikes, replys, k):
     return df
 
 # main() : main(URL, ST1, ST2, ST3, ST4, k)
-result = main(default_url, 1, 1, 1, 1, 1)
+title, article, result = main(default_url, 1, 1, 1, 1, -1)
 
