@@ -3,11 +3,11 @@
 import numpy as np
 import pandas as pd
 
-# from konlpy.tag import Okt
-# okt = Okt()
+from konlpy.tag import Okt
+okt = Okt()
 
-from konlpy.tag import Mecab
-mecab = Mecab()
+# from konlpy.tag import Mecab
+# mecab = Mecab()
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
