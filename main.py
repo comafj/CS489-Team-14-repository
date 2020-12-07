@@ -22,7 +22,7 @@ def main(URL, ST1, ST2, ST3, ST4, k):
         result = pd.DataFrame(result_list)
         result = result.T
         result.columns = ['comment', 'score', 'like', 'dislike', 'reply']
-        result.sort_values('score', ascending=False)
+        result = result.sort_values('score', ascending=False)
         final = result[['comment', 'like', 'dislike', 'reply']] #for webpage UI
         # final = result #for project report
         final = final.values.tolist()
