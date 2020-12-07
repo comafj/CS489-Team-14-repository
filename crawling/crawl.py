@@ -7,7 +7,6 @@ import requests
 from bs4 import BeautifulSoup
 import selenium
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 default_url = 'https://news.naver.com/main/read.nhn?mode=LSD&mid=shm&sid1=102&oid=009&aid=0004704439'
 
@@ -17,7 +16,8 @@ def crawling(url):
     # print("###################################################")
 
     # 웹 드라이버
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome('./crawling/chromedriver')
     driver.implicitly_wait(30)
     driver.get(url)
 
@@ -71,16 +71,11 @@ def crawling(url):
     return boo, head, content, comment, like, dislike, reply # if !boo, some of news comments have been removed
 
 def log_scale(input, n): # logn(x+1): 0(if x == 0)
-    l = []
-    for elem in input:
-        if elem >= 0:
-            l.append(math.log(elem + 1, n))
-        else:
-            l.append(-math.log(-elem + 1, n))
-    return l
+    return [math.log((elem) + 1, n) for elem in input]
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
-    return [(elem-min(input))/(max(input)-min(input)) for elem in input]
+    temp = [elem for elem in input]
+    return [(elem-min(temp))/(max(temp)-min(temp)) for elem in temp]
 
 def norm_rank(input, rev): # If rev, smallest = 1. Else, largest = 1.
     temp = sorted([(elem, i) for i, elem in enumerate(input)], reverse = rev)
