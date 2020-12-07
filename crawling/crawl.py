@@ -16,8 +16,8 @@ def crawling(url):
     # print("###################################################")
 
     # 웹 드라이버
-    # driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver = webdriver.Chrome('./crawling/chromedriver')
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver = webdriver.Chrome('./crawling/chromedriver')
     driver.implicitly_wait(30)
     driver.get(url)
 

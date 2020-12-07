@@ -3,11 +3,11 @@
 import numpy as np
 import pandas as pd
 
-# from konlpy.tag import Okt
-# okt = Okt()
+from konlpy.tag import Okt
+okt = Okt()
 
-from konlpy.tag import Mecab
-mecab = Mecab()
+# from konlpy.tag import Mecab
+# mecab = Mecab()
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -24,21 +24,21 @@ def article_proc(article):
         article = s
     return article
 
-# # okt
-# def get_morphs(text):
-#     tags = okt.pos(text, norm='True', stem='True')
-#     l = [] 
-#     for words in tags:  
-#         l.append(words[0])
-#     return l
-
-#mecab
+# okt
 def get_morphs(text):
-    tags = mecab.pos(text)
+    tags = okt.pos(text, norm='True', stem='True')
     l = [] 
     for words in tags:  
         l.append(words[0])
     return l
+
+# #mecab
+# def get_morphs(text):
+#     tags = mecab.pos(text)
+#     l = [] 
+#     for words in tags:  
+#         l.append(words[0])
+#     return l
 
 def nonset_jac_sim(article, text):
     article = get_morphs(article)

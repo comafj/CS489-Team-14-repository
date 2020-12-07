@@ -22,7 +22,7 @@ def main(URL, ST1, ST2, ST3, ST4, k):
         result = pd.DataFrame(result_list)
         result = result.T
         result.columns = ['comment', 'score', 'like', 'dislike', 'reply']
-        result.sort_values('score', ascending=False)
+        result = result.sort_values('score', ascending=False)
         final = result[['comment', 'like', 'dislike', 'reply']] #for webpage UI
         # final = result #for project report
         final = final.values.tolist()
@@ -49,7 +49,7 @@ def sub(title, article, comments, likes, dislikes, replys, k):
     val_list1 = cr.norm_data(cr.log_scale(replys, 2))
     val_list2 = cr.norm_data(cr.log_scale(pr.list_calculate(likes,dislikes,k), 2))
     val_list3 = cr.norm_data(pr.list_calculate(textRank, jaccard, -2)) 
-    val_list4 = pr.list_calculate(cr.norm_rank(cosine, True), cr.norm_rank(euclidean, False), 2)
+    val_list4 = pr.list_calculate(cr.norm_rank(cosine, False), cr.norm_rank(euclidean, True), 2)
 
     # SHOULD we set this numbers
     a, b, c, d = 2.23, 3.35, 2.92, 4 # default : based on the pre-survey (+ d, max) 
