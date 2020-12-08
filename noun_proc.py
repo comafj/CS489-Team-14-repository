@@ -70,24 +70,21 @@ def nor_euc_dis(matrix):
     return sim[0][0]
 
 def list_calculate(l1, l2, k):
-    if l2 == []:
-        l = (np.array(l1)*k).tolist()
-    else:
-        if k == 0:
-            l = l1
-        elif k == 1:
-            ldf = pd.DataFrame([l1]+[l2])
-            ldf = ldf.T
-            ldf[2] = ldf[0] + ldf[1]
-            l =ldf[2].tolist()
-        elif k == -1:
-            ldf = pd.DataFrame([l1]+[l2])
-            ldf = ldf.T
-            ldf[2] = ldf[0] - ldf[1]
-            l =ldf[2].tolist() 
-        elif k == 2:
-            ldf = pd.DataFrame([l1]+[l2])
-            ldf = ldf.T
-            ldf[2] = (ldf[0] * ldf[1])**(1/2)
-            l =ldf[2].tolist()
+    if k == 0:
+        l = l1
+    elif k == 1:
+        ldf = pd.DataFrame([l1]+[l2])
+        ldf = ldf.T
+        ldf[2] = ldf[0] + ldf[1]
+        l =ldf[2].tolist()
+    elif k == -1:
+        ldf = pd.DataFrame([l1]+[l2])
+        ldf = ldf.T
+        ldf[2] = ldf[0] - ldf[1]
+        l =ldf[2].tolist() 
+    elif k == 2:
+        ldf = pd.DataFrame([l1]+[l2])
+        ldf = ldf.T
+        ldf[2] = (ldf[0] * ldf[1])**(1/2)
+        l =ldf[2].tolist()
     return l
