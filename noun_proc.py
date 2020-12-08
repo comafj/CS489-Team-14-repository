@@ -90,9 +90,4 @@ def list_calculate(l1, l2, k):
             ldf = ldf.T
             ldf[2] = (ldf[0] * ldf[1])**(1/2)
             l =ldf[2].tolist()
-        elif k == -2:
-            ldf = pd.DataFrame([l1]+[l2])
-            ldf = ldf.T
-            ldf[2] = (ldf[0] / ldf[1])**(1/2)
-            l =ldf[2].tolist()
     return l
