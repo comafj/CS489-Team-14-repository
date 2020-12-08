@@ -18,6 +18,10 @@ def crawling(url):
 
     # 웹 드라이버
     driver = webdriver.Chrome(ChromeDriverManager().install())
+<<<<<<< HEAD
+=======
+    # driver = webdriver.Chrome('./crawling/chromedriver')
+>>>>>>> 4c2088f811de37582f9392e2a3b6dcf91a4611ca
     driver.implicitly_wait(30)
     driver.get(url)
 
@@ -74,10 +78,18 @@ def log_scale(input, n): # logn(x+1): 0(if x == 0)
     l = []
     for elem in input:
         if elem >= 0:
+<<<<<<< HEAD
             l.append(math.log(elem + 1, n))
         else:
             l.append(-math.log(-elem + 1, n))
     return l
+=======
+            l.append(math.log((elem) + 1, n))
+        else:
+            l.append(-math.log((-elem) + 1, n))
+    return l
+
+>>>>>>> 4c2088f811de37582f9392e2a3b6dcf91a4611ca
 
 def norm_data(input): # range: 0(smallest) ~ 1(largest)
     return [(elem-min(input))/(max(input)-min(input)) for elem in input]
