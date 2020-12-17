@@ -48,7 +48,7 @@ def sub(title, article, comments, likes, dislikes, replys, k):
 
     val_list1 = cr.norm_data(cr.log_scale(replys, 2))
     val_list2 = cr.norm_data(cr.log_scale(pr.list_calculate(likes,dislikes,k), 2))
-    val_list3 = cr.norm_data(pr.list_calculate(textRank, jaccard, -2)) 
+    val_list3 = cr.norm_data(pr.list_calculate(textRank, jaccard, 2)) 
     val_list4 = pr.list_calculate(cr.norm_rank(cosine, False), cr.norm_rank(euclidean, True), 2)
 
     # SHOULD we set this numbers
@@ -57,10 +57,7 @@ def sub(title, article, comments, likes, dislikes, replys, k):
     df = pd.DataFrame(default)
     df = df.T
     df = df.fillna(0)
-    df[2] = a*df[2]
-    df[3] = b*df[3]
-    df[4] = c*df[4]
-    df[5] = d*df[5]
+    df[2], df[3], df[4], df[5]  = a*df[2], b*df[3], c*df[4], d*df[5]
     return df
 
 # main() : main(URL, ST1, ST2, ST3, ST4, k)
