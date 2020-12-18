@@ -16,7 +16,7 @@ beautifulsoup4==4.6.0
 bleach @ file:///tmp/build/80754af9/bleach_1600439572647/work
 brotlipy==0.7.0
 bs4==0.0.1
-certifi==2020.11.8
+certifi==2020.12.5
 cffi @ file:///C:/ci/cffi_1606255208697/work
 chardet @ file:///C:/ci/chardet_1605303225733/work
 click==7.1.2
@@ -161,3 +161,7 @@ wincertstore==0.2
 wrapt==1.11.2
 yapf @ file:///tmp/build/80754af9/yapf_1593528177422/work
 zipp @ file:///tmp/build/80754af9/zipp_1604001098328/work
+
+requests~=2.25.0
+PyQt5~=5.15.2
+mysqlclient~=2.0.1
