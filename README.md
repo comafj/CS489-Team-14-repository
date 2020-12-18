@@ -24,5 +24,30 @@ So checking process is needed.
 ### news.py
 At extraction folder, some important keywords are extracted from the main news.
 With these keywords, this file searches some relevant naver news articles.
-### test_main.py
-Temporary main file
+### index.html, middle_page.py, result_page.py
+A simple implementation of web using CGI. Configure the page using multiple styles defined in the css folder.
+### GUI_test.py
+A simple implementation of the GUI. Results obtained from the GUI created with this file are implemented so that only the top three comments aligned with the set criteria are output.
+### utilfunc.py
+A file that defines a function that allows to use the process of scoring comments using TextRank with other factors.
+### main.py
+A file that defines the main function that performs all the procedures sequentially.
+
+## Usage
+### In Python
+```python
+import main as ma
+
+# main() : main(URL, ST1, ST2, ST3, ST4, k)
+# URL indicates news article of interest
+# ST1 is weight on number of replies
+# ST2 is weight on number of likes / dislikes
+# ST3 is weight on keyword based algorithm
+# ST4 is weight on similarity based algorithm
+# k determines the detailed method of Like/dislike option
+title, article, result = ma.main(default_url, 1, 2, 3, 4, -1)
+
+print(title)
+print(article)
+print(result)
+```
