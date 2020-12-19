@@ -1,4 +1,4 @@
-# CS489-Team-14-repository
+# CS489-Team-14, Social Ethics Assitant : Offering Tools with new Sorting Criteria
 Group project for 2020 Fall CS489 Computer Ethics and Social Issues
 
 We want to provide social ethics assistants by offering tools with new sorting criteria.
@@ -6,6 +6,7 @@ We want to provide social ethics assistants by offering tools with new sorting c
 ## Subject / Purpose
 - Comments on a website can easily influence the initial opinions of people who are new to the article.
 - If people can easily find their subjectivity without external influence, the number of victims of Internet public opinion will be reduced.
+- In order for people to truly get their own thoughts, we don't just give one answer, we just act as an assitant to help make their own answer.
 <center> 
   *Help people to find their own opinion*
 </center>
