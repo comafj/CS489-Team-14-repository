@@ -3,7 +3,9 @@ Group project for 2020 Fall CS489 Computer Ethics and Social Issues
 
 We want to act as an assistant by offering new and personalized sorting criteria in NAVER NEWS COMMENT.
 
+
 ### 🏠 [Homepage](https://github.com/comafj/CS489-Team-14-repository)
+
 
 ## :pushpin: Subject / Purpose
 - Comments on a website can easily influence the initial opinions of people who are new to the article.
@@ -35,7 +37,7 @@ print(article)
 print(result)
 ```
 
-## File Configuration - MAIN :blue_heart:
+## :blue_heart: File Configuration - MAIN 
 ### main.py
 A file that defines the main function that performs all the procedures sequentially.
 ### crawling
@@ -45,7 +47,7 @@ A file that defines all functions which are needed to calculate the score in mai
 ### utilfunc.py
 A file that defines a function that allows to use the process of scoring comments using TextRank with other factors.
 
-## File Configuration - Sub :purple_heart: 
+## :purple_heart: File Configuration - Sub 
 ### GUI_test.py
 A simple implementation of the GUI. Results obtained from the GUI created with this file are implemented so that only the top three comments aligned with the set criteria are output.
 ### dict_check.py
@@ -58,7 +60,7 @@ With these keywords, this file searches some relevant naver news articles.
 ### index.html, middle_page.py, result_page.py
 A simple implementation of web using CGI. Configure the page using multiple styles defined in the css folder.
 
-## File Configuration - Additional :green_heart: 
+## :green_heart: File Configuration - Additional 
 ### crawling_output
 In this folder, we save tsv format files that include results of crawling.
 ### extraction
