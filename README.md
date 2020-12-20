@@ -1,5 +1,4 @@
-# CS489_Team-14, 
-# Social Ethics Assitant : Offering Tools with new Sorting Criteria :mag:
+# CS489_Team-14, ## Social Ethics Assitant : Offering Tools with new Sorting Criteria :mag:
 Group project for 2020 Fall CS489 Computer Ethics and Social Issues
 
 We want to act as an assistant by offering new and personalized sorting criteria in NAVER NEWS COMMENT.
